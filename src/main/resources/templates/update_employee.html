@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>System zarządzania pracownikami</title>
+
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 
@@ -11,21 +12,25 @@
 <div class="container">
   <h1>System zarządzania pracownikami</h1>
   <hr>
-  <h2>Zapisz pracownika</h2>
+  <h2>Zaktualizuj pracownika</h2>
 
   <form action="#" th:action="@{/saveEmployee}" th:object="${employee}" method="POST">
-    <input type="text" th:field="*{firstName}" placeholder="Imię pracownika" class="form-control mb-4 col-4">
 
-    <input type="text" th:field="*{lastName}" placeholder="Nazwisko pracownika" class="form-control mb-4 col-4">
+    <!-- Add hidden form field to handle update -->
+    <input type="hidden" th:field="*{id}" />
 
-    <input type="text" th:field="*{email}" placeholder="Email pracownika" class="form-control mb-4 col-4">
+    <input type="text" th:field="*{firstName}" class="form-control mb-4 col-4">
 
-    <button type="submit" class="btn btn-info col-2"> Zapisz pracownika</button>
+    <input type="text" th:field="*{lastName}" class="form-control mb-4 col-4">
+
+    <input type="text" th:field="*{email}" class="form-control mb-4 col-4">
+
+    <button type="submit" class="btn btn-info col-2">Zaktualizuj pracownika</button>
   </form>
 
   <hr>
 
-  <a th:href="@{/}">Powróc do listy pracowników</a>
+  <a th:href="@{/}">Powrót do listy pracowników</a>
 </div>
 </body>
 

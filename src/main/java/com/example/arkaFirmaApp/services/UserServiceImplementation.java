@@ -21,8 +21,10 @@ import java.util.Arrays;
 @Service
 public class UserServiceImplementation implements UserService {
 
+    @Autowired
     private RoleRepository roleRepository;
 
+    @Autowired
     private UserRepository userRepository;
 
     @Autowired

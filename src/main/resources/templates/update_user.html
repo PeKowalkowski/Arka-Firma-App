@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset=UTF-8>
+    <title>Arkadiusz Maśliński - Program do obsługi pracowników i projektów</title>
+
+</head>
+
+<body>
+<div>
+    <nav class="navBarClass">
+        <form th:action="@{/logout}" method="post">
+            <button class="logoutButtonClass" type="submit" value="Wyloguj się">Wyloguj się</button>
+        </form>
+        <form>
+            <input type="button" class="backButtonClass" value="Wróć" onclick="history.back()">
+        </form>
+        <div class="navBarButtonsClass">
+            <a class="navBarButtonsClass" th:href="@{/}" type="button"> Tabela Pracowników </a>
+        </div>
+    </nav>
+</div>
+<h1>Edytuj pracownika</h1>
+<div class="addProjectClass">
+    <form action="#" th:action="@{/saveUser}" th:object="${user}" method="POST">
+
+        <br><input class="addProjectInputClass" type="hidden" th:field="*{id}"/>
+        <br>Imie:
+        <br><input class="addProjectInputClass" type="text" th:field="*{firstname}">
+        <br>Nazwisko
+        <br><input class="addProjectInputClass" type="text" th:field="*{lastname}">
+        <br>Login
+        <br><input class="addProjectInputClass" type="text" th:field="*{login}">
+        <br>Hasło
+        <br><input class="addProjectInputClass" type="text" th:field="*{password}">
+
+        <div>
+            <label>Wybierz rolę</label>
+            <div class="editRoleClass">
+                <th:block th:each="role : ${roleList}">
+                    <input class="editRoleClass" type="radio" th:field="*{roles}"
+                           th:value="${role.id}"
+                           th:text="${role.name}"/>
+                </th:block>
+            </div>
+        </div>
+        <br><button class="saveButtonClass" type="submit"> Edytuj Pracownika</button>
+    </form>
+</div>
+</body>
+
+</html>

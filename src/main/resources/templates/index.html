@@ -1,10 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl" xmlns:th="http://thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
+    <meta charset=UTF-8>
     <title>Arkadiusz Maśliński - Program do obsługi pracowników i projektów</title>
 </head>
 <body>
-    Hello World
+<div>
+    <nav class="navBarClass">
+        <form th:action="@{/logout}" method="post">
+            <button class="logoutButtonClass" type="submit" value="Wyloguj się">Wyloguj się</button>
+        </form>
+        <div class="helloDivClass" sec:authorize="isAuthenticated()">
+            Witaj <b><span sec:authentication="name">Username</span></b>
+            &nbsp;
+            <span sec:authentication="principal.authorities">Roles</span>
+        </div>
+
+    </nav>
+    <h1>Lista pracowników</h1>
+    <div class="tableDiv">
+        <table class="tableClass">
+            <thead>
+            <tr>
+                <th>
+                    <a class="thButtonClass"
+                       th:href="@{'/page/' + ${currentPage} + '?sortField=id&sortDir=' + ${reverseSortDir}}">
+                        Id
+                    </a>
+                </th>
+                <th class="thClass">
+                    <a class="thButtonClass"
+                       th:href="@{'/page/' + ${currentPage} + '?sortField=firstname&sortDir=' + ${reverseSortDir}}">
+                        Imię pracownika</a>
+                </th>
+                <th>
+                    <a class="thButtonClass"
+                       th:href="@{'/page/' + ${currentPage} + '?sortField=lastname&sortDir=' + ${reverseSortDir}}">
+                        Nazwisko pracownika</a>
+                </th>
+                <th>
+                    <a class="thButtonClass"
+                       th:href="@{'/page/' + ${currentPage} + '?sortField=login&sortDir=' + ${reverseSortDir}}">
+                        Email</a>
+                </th>
+                <th>
+                    <a class="thButtonClass"
+                       th:href="@{'/page/' + ${currentPage} + '?sortField=roles&sortDir=' + ${reverseSortDir}}">
+                        Rola</a>
+                </th>
+                <th class="thButtonClass" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">Szczegóły</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr th:each="user : ${userList}">
+                <td th:text="${user.id}"></td>
+                <td th:text="${user.firstname}"></td>
+                <td th:text="${user.lastname}"></td>
+                <td th:text="${user.login}"></td>
+                <td th:text="${user.roles}">Rola</td>
+                <td sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
+                    <a class="thButtonClass" th:href="@{/user/{id}(id=${user.id})}">Szczegóły</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="amountDivClass">
+     <span th:each="i: ${#numbers.sequence(1, totalPages)}">
+      <a th:if="${currentPage != i}"
+         th:href="@{'/page/' + ${i}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">[[${i}]]</a>
+      <span th:unless="${currentPage != i}">[[${i}]]</span>
+     </span>
+    </div>
+    <div class="amountDivClass"
+         th:if="${totalPages > 1}">
+    </div>
+
+    <div class="amountPageDivClass">
+        Ilość : [[${totalItems}]]
+    </div>
+
+    <div class="nextLastDivClass">
+        <a th:if="${currentPage < totalPages}"
+           th:href="@{'/page/' + ${currentPage + 1}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Następna</a>
+        <span th:unless="${currentPage < totalPages}">Następna</span>
+        <a th:if="${currentPage < totalPages}"
+           th:href="@{'/page/' + ${totalPages}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Ostatnia</a>
+        <span th:unless="${currentPage < totalPages}">Ostatnia</span>
+    </div>
+</div>
 </body>
 </html>

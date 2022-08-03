@@ -18,8 +18,11 @@ public class MainController {
     @Autowired
     private UserServiceImplementation userServiceImplementation;
 
+    public MainController(UserServiceImplementation userServiceImplementation) {
+        this.userServiceImplementation = userServiceImplementation;
+    }
 
-    @GetMapping("/index")
+    @GetMapping("/")
     public String showMainPage(Model model){
         return findPaginated(1, "firstname", "asc", model);
     }

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Arkadiusz Maśliński - Program do obsługi pracowników i projektów</title>
+
+</head>
+<body>
+<div>
+    <nav class="navBarClass">
+        <form th:action="@{/logout}" method="post">
+            <button class="logoutButtonClass" type="submit" value="Wyloguj się">Wyloguj się</button>
+        </form>
+        <form>
+            <input type="button" class="backButtonClass" value="Wróć" onclick="history.back()">
+        </form>
+        <div class="navBarButtonsClass">
+            <a class="navBarButtonsClass" th:href="@{/}" type="button"> Tabela Pracowników </a>
+        </div>
+    </nav>
+</div>
+<h1>Profil pracownika</h1>
+<br/><br/>
+<div class="employeePageClass" th:if="${user}">
+    <table>
+        <tr>
+            <td>ID</td>
+            <td th:text="${user.id}"></td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td th:text="${user.firstname}"></td>
+        </tr>
+        <tr>
+            <td>Last Name </td>
+            <td th:text="${user.lastname}"></td>
+        </tr>
+        <tr>
+            <td>Login</td>
+            <td th:text="${user.login}"></td>
+        </tr>
+        <tr>
+            <td>Rola</td>
+            <td th:text="${user.roles}"></td>
+        </tr>
+        <tr>
+            <td>Projekty</td>
+        </tr>
+
+    </table>
+    <br/><br/>
+    <div>
+        <a class="thButtonEditClass" th:href="@{/showFormForUpdate/{id}(id=${user.id})}">Edytuj</a>
+        <a class="thButtonDeleteClass" th:href="@{/deleteUser/{id}(id=${user.id})}">Usuń</a>
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,10 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Arkadiusz Maśliński - Program do obsługi pracowników i projektów</title>
 </head>
 <body>
+    <nav class="navBarClass">
+        <div class="navBarDivClass">
+            Arkadiusz Maśliński - Program do obsługi pracowników i projektów
+        </div>
+    </nav>
+    <div>
+        <div>
 
+            <div class="addProjectClass">
+                <h1> Logowanie </h1>
+                <form th:action="@{/login}" method="post">
+
+                    <div th:if="${param.error}">
+                        <div class="badUserNameClass">Nieprawidłowa nazwa użytkownika lub hasło.</div>
+                    </div>
+
+                    <div th:if="${param.logout}" >
+                        <div class="badUserNameClass">Zostałeś wylogowany</div>
+                    </div>
+                    <div>
+                        <br>Login
+                        <label for="username"></label> :
+                        <br><input class="addProjectInputClass" type="text" id="username" name="username"
+                                   placeholder="Login" autofocus="autofocus">
+                    </div>
+                    <div>
+                        <br>Hasło
+                        <label for="password"></label>:
+                        <br><input class="addProjectInputClass" type="password" id="password" name="password"
+                                   placeholder="Hasło"/>
+                    </div>
+                    <div>
+                        <form th:action="@{/index}" method="post">
+                            <button class="saveButtonClass" type="submit" value="Log in">Zaloguj się</button>
+                        </form>
+                    </div>
+                </form>
+                <div >
+                    <a href="/" th:href="@{/registration}">Zarejestruj się</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

@@ -1,10 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Arkadiusz Maśliński - Program do obsługi pracowników i projektów</title>
 </head>
 <body>
+    <nav class="navBarStartClass">
+        <h1 class="navBarButtonsClass">Arkadiusz Maśliński - Program do obsługi pracowników i projektów</h1>
+    </nav>
+    <div>
+    <div>
+        <div class="addProjectClass">
+            <h1>Rejestracja</h1>
+            <form th:action="@{/registration}" method="post" th:object="${user}">
+                <div>
+                    <br>Imię
+                    <label for="firstname"> </label>
+                    <br><input class="addProjectInputClass" id="firstName"th:field="*{firstname}"
+                               required autofocus="autofocus" />
+                </div>
 
+                <div>
+                    <br>Nazwisko
+                    <label for="lastname">  </label>
+                    <br><input class="addProjectInputClass" id="lastName" th:field="*{lastname}"
+                               required autofocus="autofocus" />
+                </div>
+
+                <div>
+                    <br>Login
+                    <label for="email">  </label>
+                    <br><input class="addProjectInputClass" id="email"  th:field="*{login}" required
+                               autofocus="autofocus" />
+                </div>
+
+                <div>
+                    <br>Hasło
+                    <label for="password">  </label>
+                    <br><input class="addProjectInputClass" id="password" type="password"
+                               th:field="*{password}" required autofocus="autofocus" />
+                </div>
+
+                <div>
+                    <button class="saveButtonClass" type="submit">Zarejestruj się</button>
+                </div>
+                <div>
+                    <span>Masz już konto?<a href="/" th:href="@{/login}">Zaloguj się</a></span>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
 </body>
 </html>

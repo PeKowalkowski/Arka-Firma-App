@@ -1,7 +1,7 @@
 package com.example.arkaFirmaApp.controllers;
 
 import com.example.arkaFirmaApp.entities.User;
-import com.example.arkaFirmaApp.services.UserService;
+import com.example.arkaFirmaApp.services.UserServiceImplementation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -16,12 +16,12 @@ import java.util.List;
 public class MainController {
 
     @Autowired
-    private UserService userService;
+    private UserServiceImplementation userServiceImplementation;
 
 
     @GetMapping("/index")
     public String showMainPage(Model model){
-        return findPaginated(1, "firstName", "asc", model);
+        return findPaginated(1, "firstname", "asc", model);
     }
 
 
@@ -31,7 +31,7 @@ public class MainController {
                                 @RequestParam("sortDir") String sortDir,
                                 Model model) {
         int pageSize = 5;
-        Page<User> page = userService.findPaginated(pageNo, pageSize, sortField, sortDir);
+        Page<User> page = userServiceImplementation.findPaginated(pageNo, pageSize, sortField, sortDir);
         List<User> userList = page.getContent();
 
         model.addAttribute("currentPage", pageNo);

@@ -62,7 +62,6 @@ public class MainProjectController {
         return "redirect:/showMainProjectIndex";
     }
 
-    @Secured("ROLE_ADMIN")
     @GetMapping("/showFormForUpdateProject/{id}")
     public String showFormForUpdateProject(@PathVariable(value = "id") Long id, Model model) {
         MainProject mainProject = mainProjectService.getProjectById(id);

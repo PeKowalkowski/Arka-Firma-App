@@ -4,7 +4,56 @@
     <meta charset="UTF-8">
     <title>Arkadiusz Maśliński - Program do obsługi pracowników i projektów</title>
 </head>
-<body>
 
+<body>
+<div>
+    <nav class="navBarClass">
+        <form th:action="@{/logout}" method="post">
+            <button class="logoutButtonClass" type="submit" value="Wyloguj się">Wyloguj się</button>
+        </form>
+        <form>
+            <input type="button" class="backButtonClass" value="Wróć" onclick="history.back()">
+        </form>
+        <div class="navBarButtonsClass">
+            <a class="navBarButtonsClass" th:href="@{/}" type="button"> Tabela Pracowników </a>
+        </div>
+    </nav>
+</div>
+<h1>Edytuj projekt</h1>
+
+<div class="addProjectClass">
+
+    <form action="#" th:action="@{/saveNewProject}" th:object="${mainProject}" method="POST">
+        <input type="hidden" th:field="*{id}"/>
+        <br>Data
+        <br><input class="addProjectInputClass" type="date" th:field="*{date}">
+        <br>Numer Rys
+        <br><input class="addProjectInputClass" type="text" th:field="*{scratchNumber}">
+        <br>Nazwa Projektu
+        <br><input class="addProjectInputClass" type="text" th:field="*{projectName}">
+        <br>Nazwa Wykonawcy
+        <br><input class="addProjectInputClass" type="text" th:field="*{principalName}">
+        <br>Materiał
+        <br><select class="addProjectInputClass" name="material" th:field="*{material}" >
+        <option value="">Wybierz materiał</option>
+        <option value="Materiał 1">Materiał 1</option>
+        <option value="Materiał 2">Materiał 2</option>
+        <option value="Materiał 3">Materiał 3</option>
+        <option value="Materiał 4">Materiał 4</option>
+    </select>
+        <br>Grubość
+        <br><input class="addProjectInputClass" type="text" th:field="*{thickness}">
+        <br>Liczba sztuk
+        <br><input class="addProjectInputClass" type="text" th:field="*{quantity}">
+        <br>Woda/Lase
+        <br><input class="addProjectInputClass" type="text" th:field="*{waterLaser}">
+        <br>Wysyłka
+        <br><input class="addProjectInputClass" type="text" th:field="*{ship}">
+        <br>Uwagi
+        <br><input class="addProjectInputClass" type="text" th:field="*{comments}">
+        <br><button class="saveButtonClass" type="submit"> Edytuj Projekt</button>
+    </form>
+</div>
 </body>
+
 </html>

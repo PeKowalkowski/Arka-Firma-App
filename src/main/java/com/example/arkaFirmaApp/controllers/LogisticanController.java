@@ -15,6 +15,7 @@ import java.util.List;
 @Controller
 public class LogisticanController {
 
+
     private LogisticanService logisticanService;
 
     public LogisticanController(LogisticanService logisticanService) {
@@ -69,7 +70,7 @@ public class LogisticanController {
         return "update_Logistican_Project";
     }
     @Secured("ROLE_ADMIN")
-    @GetMapping("/deleteLogisticanProject/{id]")
+    @GetMapping("/deleteLogisticanProject/{id}")
     public String deleteLogisticanProject(@PathVariable(value = "id") Long id){
         logisticanService.deleteLogisticanProject(id);
         return "redirect:/showLogisticanProjectIndex";

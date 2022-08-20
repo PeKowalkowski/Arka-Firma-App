@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Arkadiusz Maśliński - Program do obsługi pracowników i projektów</title>
+</head>
+<body>
+<div>
+    <nav class="navBarClass">
+        <form th:action="@{/logout}" method="post">
+            <button class="logoutButtonClass" type="submit" value="Wyloguj się">Wyloguj się</button>
+        </form>
+        <form>
+            <input type="button" class="backButtonClass" value="Wróć" onclick="history.back()">
+        </form>
+        <div class="navBarButtonsClass">
+            <a class="navBarButtonsClass" th:href="@{/}" type="button"> Tabela Pracowników </a>
+        </div>
+    </nav>
+
+    <h1>Dodaj projekt</h1>
+
+    <div class="addProjectClass">
+        <form action="#" th:action="@{/saveSupplierProject}"th:object="${supplier}", method="POST">
+            <br>Data
+            <br><input class="addProjectInputClass" type="date" th:field="*{date}">
+            <br>Numer rys
+            <br><input class="addProjectInputClass" type="text" th:field="*{scratchNumber}" placeholder="Numer rys">
+            <br>Nazwa Projektu
+            <br><input class="addProjectInputClass" type="text" th:field="*{projectName}" placeholder="Nazwa projektu">
+            <br>Nazwa Wykonawcy
+            <br><input class="addProjectInputClass" type="text" th:field="*{principalName}" placeholder="Nazwa Wykonawcy">
+            <br>Materiał
+            <br><select class="addProjectInputClass" name="material" th:field="*{material}" >
+            <option value="">Wybierz materiał</option>
+            <option value="Materiał 1">Materiał 1</option>
+            <option value="Materiał 2">Materiał 2</option>
+            <option value="Materiał 3">Materiał 3</option>
+            <option value="Materiał 4">Materiał 4</option>
+        </select>
+            <br>Grubość
+            <br><input class="addProjectInputClass" type="text" th:field="*{thickness}" placeholder="Grubość">
+            <br>Liczba sztuk
+            <br><input class="addProjectInputClass" type="text" th:field="*{quantity}" placeholder="Liczba sztuk">
+            <br>Woda/Laser
+            <br><input class="addProjectInputClass" type="text" th:field="*{waterLaser}" placeholder="Woda-laser">
+            <br>Wysyłka
+            <br><input class="addProjectInputClass" type="text" th:field="*{ship}" placeholder="Wysyłka">
+            <br>Uwagi
+            <br><input class="addProjectInputClass" type="text" th:field="*{comments}" placeholder="Uwagi">
+
+            <br><button class="saveButtonClass" type="submit">Zapisz projekt</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Arkadiusz Maśliński - Program do obsługi pracowników i projektów</title>
+</head>
+<body>
+<div>
+    <nav class="navBarClass">
+        <form th:action="@{/logout}" method="post">
+            <button class="logoutButtonClass" type="submit" value="Wyloguj się">Wyloguj się</button>
+        </form>
+        <form>
+            <input type="button" class="backButtonClass" value="Wróć" onclick="history.back()">
+        </form>
+        <div class="navBarButtonsClass">
+            <a class="navBarButtonsClass" th:href="@{/}" type="button"> Tabela Pracowników </a>
+            <a class="navBarButtonsClass" th:href="@{/showNewProductionProjectForm}"> Dodaj projekt </a>
+        </div>
+    </nav>
+</div>
+<h1>Tabela projektu</h1>
+<table>
+    <thead>
+    <tr>
+        <th>
+            <a th:href="@{'/showProductionProjectIndex/page/' + ${currentPage} + '?sortField=id&sortDir=' + ${reverseSortDir}}">
+                Id</a>
+        </th>
+        <th>
+            <a th:href="@{'/showProductionProjectIndex/page/' + ${currentPage} + '?sortField=date&sortDir=' + ${reverseSortDir}}">
+                Data</a>
+        </th>
+        <th>
+            <a th:href="@{'/showProductionProjectIndex/page/' + ${currentPage} + '?sortField=scratchNumber&sortDir=' + ${reverseSortDir}}">
+                Numer rys</a>
+
+        </th>
+        <th>
+            <a th:href="@{'/showProductionProjectIndex/page/' + ${currentPage} + '?sortField=projectName&sortDir=' + ${reverseSortDir}}">
+                Nazwa projektu</a>
+        </th>
+        <th>
+            <a th:href="@{'/showProductionProjectIndex/page/' + ${currentPage} + '?sortField=principalName&sortDir=' + ${reverseSortDir}}">
+                Zlecający</a>
+        </th>
+        <th>
+            <a th:href="@{'/showProductionProjectIndex/page/' + ${currentPage} + '?sortField=material&sortDir=' + ${reverseSortDir}}">
+                Materiał</a>
+        </th>
+        <th>
+            <a th:href="@{'/showProductionProjectIndex/page/' + ${currentPage} + '?sortField=thickness&sortDir=' + ${reverseSortDir}}">
+                Grubość</a>
+        </th>
+        <th>
+            <a th:href="@{'/showProductionProjectIndex/page/' + ${currentPage} + '?sortField=quantity&sortDir=' + ${reverseSortDir}}">
+                Liczba sztuk</a>
+        </th>
+        <th>
+            <a th:href="@{'/showProductionProjectIndex/page/' + ${currentPage} + '?sortField=waterLaser&sortDir=' + ${reverseSortDir}}">
+                Woda-laser</a>
+        </th>
+        <th>
+            <a th:href="@{'/showProductionProjectIndex/page/' + ${currentPage} + '?sortField=ship&sortDir=' + ${reverseSortDir}}">
+                Wysyłka/Odbiorca</a>
+        </th>
+        <th>
+            <a th:href="@{'/showProductionProjectIndex/page/' + ${currentPage} + '?sortField=comments&sortDir=' + ${reverseSortDir}}">
+                Uwagi</a>
+        </th>
+        <th>Edytuj/Usuń</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="productionProject : ${productionProjectList}">
+        <td th:text="${productionProject.id}"></td>
+        <td th:text="${productionProject.date}"></td>
+        <td th:text="${productionProject.scratchNumber}"></td>
+        <td th:text="${productionProject.projectName}"></td>
+        <td th:text="${productionProject.principalName}"></td>
+        <td th:text="${productionProject.material}"></td>
+        <td th:text="${productionProject.thickness}"></td>
+        <td th:text="${productionProject.quantity}"></td>
+        <td th:text="${productionProject.waterLaser}"></td>
+        <td th:text="${productionProject.ship}"></td>
+        <td th:text="${productionProject.comments}"></td>
+        <td>
+            <a th:href="@{/showFormForUpdateProductionProject/{id}(id=${productionProject.id})}">Edytuj</a>
+            <a th:href="@{/deleteProductionProject/{id}(id=${productionProject.id})}">Usuń</a>
+        </td>
+
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div class="amountDivClass">
+         <span th:each="i: ${#numbers.sequence(1, totalPages)}">
+          <a th:if="${currentPage != i}"
+             th:href="@{'/showProductionProjectIndex/page/' + ${i}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">[[${i}]]</a>
+          <span th:unless="${currentPage != i}">[[${i}]]</span>
+         </span>
+</div>
+<div class="amountDivClass"
+     th:if="${totalPages > 1}">
+</div>
+
+<div class="amountPageDivClass">
+    Ilość : [[${totalItems}]]
+</div>
+
+<div class="nextLastDivClass">
+    <a th:if="${currentPage < totalPages}"
+       th:href="@{'/showProductionProjectIndex/page/' + ${currentPage + 1}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Następna</a>
+    <span th:unless="${currentPage < totalPages}">Następna</span>
+    <a th:if="${currentPage < totalPages}"
+       th:href="@{'/showProductionProjectIndex/page/' + ${totalPages}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Ostatnia</a>
+    <span th:unless="${currentPage < totalPages}">Ostatnia</span>
+</div>
+</div>
+</body>
+</html>

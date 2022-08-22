@@ -30,12 +30,6 @@ public class AdminController {
         model.addAttribute("roleList", roleList);
         return "update_user";
     }
-    @PostMapping("/saveUser")
-    public String saveEmployee(@ModelAttribute("employee") User user) {
-        adminService.saveUser(user);
-        return "redirect:/";
-    }
-
     @GetMapping("/deleteUser/{id}")
     public String deleteUser(@PathVariable(value = "id") Long id){
         adminService.deleteUser(id);

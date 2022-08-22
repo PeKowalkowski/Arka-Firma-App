@@ -59,20 +59,20 @@ public class LogisticanController {
     }
     @PostMapping("/saveLogisticanProject")
     public String saveLogisticanProject(@ModelAttribute("logisticanProject") Logistican logistican){
-        logisticanService.saveLogisticanProject(logistican);
+        logisticanService.saveProject(logistican);
         return "redirect:/showLogisticanProjectIndex";
     }
 
     @GetMapping("/showFormForUpdateLogisticanProject/{id}")
     public String updateLogisticanProject(@PathVariable(value = "id") Long id, Model model){
-        Logistican logistican = logisticanService.getLogisticanProjectById(id);
+        Logistican logistican = logisticanService.findProjectById(id);
         model.addAttribute("logistican",logistican);
         return "update_Logistican_Project";
     }
     @Secured("ROLE_ADMIN")
     @GetMapping("/deleteLogisticanProject/{id}")
     public String deleteLogisticanProject(@PathVariable(value = "id") Long id){
-        logisticanService.deleteLogisticanProject(id);
+        logisticanService.deleteProject(id);
         return "redirect:/showLogisticanProjectIndex";
     }
 

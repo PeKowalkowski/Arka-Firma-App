@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class LogisticanService {
+public class LogisticanService implements ProjectService<Logistican> {
     
     @Autowired
     private LogisticanRepository logisticanRepository;
@@ -24,11 +24,11 @@ public class LogisticanService {
         return this.logisticanRepository.findAll(pageable);
     }
 
-    public void saveLogisticanProject(Logistican logistican) {
+    public void saveProject(Logistican logistican) {
         this.logisticanRepository.save(logistican);
     }
 
-    public Logistican getLogisticanProjectById(Long id) {
+    public Logistican findProjectById(Long id) {
         Optional<Logistican> logisticanOptional = logisticanRepository.findById(id);
         Logistican logistican = null;
         if(logisticanOptional.isPresent()){
@@ -39,7 +39,7 @@ public class LogisticanService {
         return logistican;
     }
 
-    public void deleteLogisticanProject(Long id) {
+    public void deleteProject(Long id) {
         logisticanRepository.deleteById(id);
     }
 }

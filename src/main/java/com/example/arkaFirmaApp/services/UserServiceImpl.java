@@ -19,7 +19,7 @@ import org.springframework.stereotype.Service;
 import java.util.Arrays;
 
 @Service
-public class UserServiceImplementation implements UserService {
+public class UserServiceImpl implements UserService {
 
     @Autowired
     private RoleRepository roleRepository;
@@ -30,7 +30,7 @@ public class UserServiceImplementation implements UserService {
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
-    public UserServiceImplementation(RoleRepository roleRepository, UserRepository userRepository) {
+    public UserServiceImpl(RoleRepository roleRepository, UserRepository userRepository) {
         this.roleRepository = roleRepository;
         this.userRepository = userRepository;
     }

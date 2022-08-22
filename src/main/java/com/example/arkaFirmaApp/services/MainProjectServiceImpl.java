@@ -7,13 +7,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
-public class MainProjectService {
+public class MainProjectServiceImpl implements ProjectService<MainProject> {
 
     @Autowired
     private MainProjectRepository mainProjectRepository;
@@ -25,11 +24,11 @@ public class MainProjectService {
         return this.mainProjectRepository.findAll(pageable);
     }
 
-    public void saveMainProject(MainProject mainProject) {
+    public void saveProject(MainProject mainProject) {
         this.mainProjectRepository.save(mainProject);
     }
 
-    public MainProject getProjectById(Long id) {
+    public MainProject findProjectById(Long id) {
         Optional<MainProject> mainProjectOptional = mainProjectRepository.findById(id);
         MainProject mainProject = null;
         if(mainProjectOptional.isPresent()){

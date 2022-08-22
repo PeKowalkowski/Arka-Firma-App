@@ -1,8 +1,7 @@
 package com.example.arkaFirmaApp.controllers;
 
 import com.example.arkaFirmaApp.entities.MainProject;
-import com.example.arkaFirmaApp.services.MainProjectService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.arkaFirmaApp.services.MainProjectServiceImpl;
 import org.springframework.data.domain.Page;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
@@ -15,9 +14,9 @@ import java.util.List;
 public class MainProjectController {
 
 
-    private MainProjectService mainProjectService;
+    private MainProjectServiceImpl mainProjectService;
 
-    public MainProjectController(MainProjectService mainProjectService) {
+    public MainProjectController(MainProjectServiceImpl mainProjectService) {
         this.mainProjectService = mainProjectService;
     }
 
@@ -58,13 +57,13 @@ public class MainProjectController {
 
     @PostMapping("/saveNewProject")
     public String saveProject(@ModelAttribute("mainProject") MainProject mainProject) {
-        mainProjectService.saveMainProject(mainProject);
+        mainProjectService.saveProject(mainProject);
         return "redirect:/showMainProjectIndex";
     }
 
     @GetMapping("/showFormForUpdateProject/{id}")
     public String showFormForUpdateProject(@PathVariable(value = "id") Long id, Model model) {
-        MainProject mainProject = mainProjectService.getProjectById(id);
+        MainProject mainProject = mainProjectService.findProjectById(id);
         model.addAttribute("mainProject", mainProject);
         return "update_Main_Project";
     }

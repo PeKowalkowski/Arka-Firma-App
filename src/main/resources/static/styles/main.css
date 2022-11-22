@@ -1,0 +1,218 @@
+body{
+    margin: 0%;
+    background: linear-gradient(rgb(255, 255, 255), rgba(115, 109, 109, 0.85));
+    background-repeat: repeat;
+    background-attachment: fixed;
+    text-align: center;
+    height: 100%;
+
+}
+html{
+    height: 100%;
+}
+title{
+    margin: 0 auto;
+}
+.addProjectClass{
+    font-weight: bold;
+    font-family: Cambria;
+}
+.addProjectInputClass{
+    font-weight: bold;
+    font-family: Cambria;
+    padding: 5px;
+    width: 20%
+}
+
+
+/****Navbars****/
+
+.navBarClass {
+    font-weight: bold;
+    font-family: Cambria;
+    background-color: rgb(222, 219, 219);
+    height: 50px;
+    width: 100%;
+    text-align: left;
+    -webkit-box-shadow: 0px 10px 21px 3px rgb(149, 163, 255);
+    -moz-box-shadow: 0px 10px 21px 3px rgb(130, 145, 255);
+    box-shadow: 0px 10px 21px 3px rgb(128, 128, 255);
+}
+.navBarStartClass{
+    top: 0px;
+    font-weight: bold;
+    font-family: Cambria;
+    background-color: rgb(222, 219, 219);
+    height: 50px;
+    width: 100%;
+    -webkit-box-shadow: 0px 10px 21px 3px rgb(149, 163, 255);
+    -moz-box-shadow: 0px 10px 21px 3px rgb(130, 145, 255);
+    box-shadow: 0px 10px 21px 3px rgb(128, 128, 255);
+}
+.navBarDivClass{
+    font-weight: bold;
+    font-family: Cambria;
+    text-align: center;
+    font-size: 25px;
+}
+.badUserNameClass{
+    color: rgb(255, 52, 52);
+}
+
+/****Tables****/
+
+table{
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid;
+    border-style: dot-dash;
+    margin: 0 auto;
+}
+.tableDiv {
+    text-align: center;
+}
+td,th{
+    text-align: left;
+    padding: 15px;
+}
+tr:nth-child(even){
+    background-color: rgba(243, 243, 243, 0.51);
+}
+tr:nth-child(even):hover{
+    background-color: rgba(192, 18, 18, 0.5);
+}
+tr:nth-child(odd):hover{
+    background-color: rgba(192, 18, 18, 0.5);
+}
+th{
+    background-color: rgba(194, 191, 191, 0.85);
+}
+/****Divs****/
+.helloDivClass{
+    font-weight: bold;
+    font-family: Cambria;
+    float: left;
+    margin-left: 5px;
+    padding-top: 25px;
+}
+.amountDivClass{
+    text-align: center;
+    font-weight: bold;
+    font-family: Cambria;
+}
+.amountPageDivClass{
+    float: left;
+    margin-left: 5%;
+    font-weight: bold;
+    font-family: Cambria;
+
+}
+.nextLastDivClass{
+    margin-right: 5%;
+    float: right;
+    font-weight: bold;
+    font-family: Cambria;
+    text-decoration: none;
+}
+.employeePageClass{
+    width: 50%;
+    margin: 0 auto;
+}
+.editRoleClass{
+    padding: 10px;
+}
+
+/****Buttons****/
+
+.logoutButtonClass{
+    font-weight: bold;
+    font-family: Cambria;
+    float: right;
+    color: white;
+    background-color: rgb(255, 52, 52);
+    margin-right: 5px;
+    margin-top: 25px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+
+}
+.logoutButtonClass:hover{
+    background-color: rgb(225, 24, 24);
+}
+.backButtonClass{
+    font-weight: bold;
+    font-family: Cambria;
+    float: left;
+    color: white;
+    background-color: rgb(128, 128, 255);
+    margin-left: 5px;
+    margin-top: 25px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    width: 50px;
+
+}
+.backButtonClass:hover{
+    background-color: rgb(82, 82, 218);
+    cursor: pointer;
+}
+.saveButtonClass{
+    font-weight: bold;
+    font-family: Cambria;
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(3, 152, 3);
+    margin-top: 10px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    width: 100px;
+    height: 40px;
+}
+.saveButtonClass:hover{
+    background-color: #027c02;
+}
+.navBarButtonsClass{
+    text-align: center;
+
+}
+a.navBarButtonsClass{
+    font-weight: bold;
+    font-family: Cambria;
+    color: blue;
+    margin-right: 30px;
+    text-decoration: none;
+
+}
+a.navBarButtonsClass:hover{
+    color: rgb(82, 82, 218);
+}
+a.thButtonClass{
+    font-weight: bold;
+    font-family: Cambria;
+    color: blue;
+    margin-right: 30px;
+    text-decoration: none;
+}
+.thButtonEditClass{
+    font-weight: bold;
+    font-family: Cambria;
+    color: blue;
+    margin-right: 30px;
+    text-decoration: none;
+}
+.thButtonDeleteClass{
+    font-weight: bold;
+    font-family: Cambria;
+    color: rgb(255, 52, 52);
+    margin-right: 30px;
+    text-decoration: none;
+}
+
+
+
+
+

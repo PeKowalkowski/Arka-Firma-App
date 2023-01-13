@@ -10,17 +10,17 @@
 <div>
     <nav class="navBarClass">
         <form th:action="@{/logout}" method="post">
-            <button class="logoutButtonClass" type="submit" value="Wyloguj się">Wyloguj się</button>
+            <button class="logoutButtonClass" type="submit" value="Wyloguj się">Log out</button>
         </form>
         <form>
-            <input type="button" class="backButtonClass" value="Wróć" onclick="history.back()">
+            <input type="button" class="backButtonClass" value="Back" onclick="history.back()">
         </form>
         <div class="navBarButtonsClass">
-            <a class="navBarButtonsClass" th:href="@{/}" type="button"> Tabela Pracowników </a>
+            <a class="navBarButtonsClass" th:href="@{/}" type="button"> List of employees </a>
         </div>
     </nav>
 </div>
-<h1>Profil pracownika</h1>
+<h1>Employee details</h1>
 <br/><br/>
 <div class="employeePageClass" th:if="${user}">
     <table>
@@ -29,7 +29,7 @@
             <td th:text="${user.id}"></td>
         </tr>
         <tr>
-            <td>Name</td>
+            <td>First name</td>
             <td th:text="${user.firstname}"></td>
         </tr>
         <tr>
@@ -41,18 +41,18 @@
             <td th:text="${user.login}"></td>
         </tr>
         <tr>
-            <td>Rola</td>
+            <td>Role</td>
             <td th:text="${user.roles}"></td>
         </tr>
         <tr>
-            <td>Projekty</td>
+            <td>Projects</td>
         </tr>
 
     </table>
     <br/><br/>
     <div>
-        <a class="thButtonEditClass" th:href="@{/showFormForUpdate/{id}(id=${user.id})}">Edytuj</a>
-        <a class="thButtonDeleteClass" th:href="@{/deleteUser/{id}(id=${user.id})}">Usuń</a>
+        <a class="thButtonEditClass" th:href="@{/showFormForUpdate/{id}(id=${user.id})}">Edit</a>
+        <a class="thButtonDeleteClass" th:href="@{/deleteUser/{id}(id=${user.id})}">Delete</a>
     </div>
 
 </div>

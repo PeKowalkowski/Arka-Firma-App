@@ -13,32 +13,32 @@
 <div>
     <nav class="navBarClass">
         <form th:action="@{/logout}" method="post">
-            <button class="logoutButtonClass" type="submit" value="Wyloguj się">Wyloguj się</button>
+            <button class="logoutButtonClass" type="submit" value="Wyloguj się">Log out</button>
         </form>
         <form>
-            <input type="button" class="backButtonClass" value="Wróć" onclick="history.back()">
+            <input type="button" class="backButtonClass" value="Back" onclick="history.back()">
         </form>
         <div class="navBarButtonsClass">
-            <a class="navBarButtonsClass" th:href="@{/}" type="button"> Tabela Pracowników </a>
+            <a class="navBarButtonsClass" th:href="@{/}" type="button"> List of employees </a>
         </div>
     </nav>
 </div>
-<h1>Edytuj pracownika</h1>
+<h1>Edit employee</h1>
 <div class="addProjectClass">
     <form action="#" th:action="@{/saveUser}" th:object="${user}" method="POST">
 
         <br><input class="addProjectInputClass" type="hidden" th:field="*{id}"/>
-        <br>Imie:
+        <br>First name:
         <br><input class="addProjectInputClass" type="text" th:field="*{firstname}">
-        <br>Nazwisko
+        <br>Last name
         <br><input class="addProjectInputClass" type="text" th:field="*{lastname}">
         <br>Login
         <br><input class="addProjectInputClass" type="text" th:field="*{login}">
-        <br>Hasło
+        <br>Password
         <br><input class="addProjectInputClass" type="text" th:field="*{password}">
 
         <div>
-            <label>Wybierz rolę</label>
+            <label>Select Role</label>
             <div class="editRoleClass">
                 <th:block th:each="role : ${roleList}">
                     <input class="editRoleClass" type="radio" th:field="*{roles}"
@@ -47,7 +47,7 @@
                 </th:block>
             </div>
         </div>
-        <br><button class="saveButtonClass" type="submit"> Edytuj Pracownika</button>
+        <br><button class="saveButtonClass" type="submit">Edit employee</button>
     </form>
 </div>
 </body>

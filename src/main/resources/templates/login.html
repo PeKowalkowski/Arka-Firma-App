@@ -16,15 +16,15 @@
         <div>
 
             <div class="addProjectClass">
-                <h1> Logowanie </h1>
+                <h1> Login </h1>
                 <form th:action="@{/login}" method="post">
 
                     <div th:if="${param.error}">
-                        <div class="badUserNameClass">Nieprawidłowa nazwa użytkownika lub hasło.</div>
+                        <div class="badUserNameClass">Invalid username or password.</div>
                     </div>
 
                     <div th:if="${param.logout}" >
-                        <div class="badUserNameClass">Zostałeś wylogowany</div>
+                        <div class="badUserNameClass">You have been log out</div>
                     </div>
                     <div>
                         <br>Login
@@ -33,19 +33,19 @@
                                    placeholder="Login" autofocus="autofocus">
                     </div>
                     <div>
-                        <br>Hasło
+                        <br>Password
                         <label for="password"></label>:
                         <br><input class="addProjectInputClass" type="password" id="password" name="password"
-                                   placeholder="Hasło"/>
+                                   placeholder="Password"/>
                     </div>
                     <div>
                         <form th:action="@{/index}" method="post">
-                            <button class="saveButtonClass" type="submit" value="Log in">Zaloguj się</button>
+                            <button class="saveButtonClass" type="submit" value="Log in">Log in</button>
                         </form>
                     </div>
                 </form>
                 <div >
-                    <a href="/" th:href="@{/registration}">Zarejestruj się</a>
+                    <a href="/" th:href="@{/registration}">Register</a>
                 </div>
             </div>
         </div>

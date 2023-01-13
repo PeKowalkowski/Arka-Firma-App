@@ -11,48 +11,48 @@
 <div>
     <nav class="navBarClass">
         <form th:action="@{/logout}" method="post">
-            <button class="logoutButtonClass" type="submit" value="Wyloguj się">Wyloguj się</button>
+            <button class="logoutButtonClass" type="submit" value="Wyloguj się">Log out</button>
         </form>
         <form>
-            <input type="button" class="backButtonClass" value="Wróć" onclick="history.back()">
+            <input type="button" class="backButtonClass" value="Back" onclick="history.back()">
         </form>
         <div class="navBarButtonsClass">
-            <a class="navBarButtonsClass" th:href="@{/}" type="button"> Tabela Pracowników </a>
+            <a class="navBarButtonsClass" th:href="@{/}" type="button"> List of employees </a>
         </div>
     </nav>
 
-    <h1>Dodaj projekt</h1>
+    <h1>Add project</h1>
 
     <div class="addProjectClass">
         <form action="#" th:action="@{/saveProductionProject}"th:object="${production}", method="POST">
-            <br>Data
+            <br>Date
             <br><input class="addProjectInputClass" type="date" th:field="*{date}">
-            <br>Numer rys
-            <br><input class="addProjectInputClass" type="text" th:field="*{scratchNumber}" placeholder="Numer rys">
-            <br>Nazwa Projektu
-            <br><input class="addProjectInputClass" type="text" th:field="*{projectName}" placeholder="Nazwa projektu">
-            <br>Nazwa Wykonawcy
-            <br><input class="addProjectInputClass" type="text" th:field="*{principalName}" placeholder="Nazwa Wykonawcy">
-            <br>Materiał
+            <br>Scratch number
+            <br><input class="addProjectInputClass" type="text" th:field="*{scratchNumber}" placeholder="Scratch number">
+            <br>Project name
+            <br><input class="addProjectInputClass" type="text" th:field="*{projectName}" placeholder="Project name">
+            <br>Principal name
+            <br><input class="addProjectInputClass" type="text" th:field="*{principalName}" placeholder="Principal name">
+            <br>Material
             <br><select class="addProjectInputClass" name="material" th:field="*{material}" >
-            <option value="">Wybierz materiał</option>
-            <option value="Materiał 1">Materiał 1</option>
-            <option value="Materiał 2">Materiał 2</option>
-            <option value="Materiał 3">Materiał 3</option>
-            <option value="Materiał 4">Materiał 4</option>
+            <option value="">Select material</option>
+            <option value="Material 1">Material 1</option>
+            <option value="Material 2">Material 2</option>
+            <option value="Material 3">Material 3</option>
+            <option value="Material 4">Material 4</option>
         </select>
-            <br>Grubość
-            <br><input class="addProjectInputClass" type="text" th:field="*{thickness}" placeholder="Grubość">
-            <br>Liczba sztuk
-            <br><input class="addProjectInputClass" type="text" th:field="*{quantity}" placeholder="Liczba sztuk">
-            <br>Woda/Laser
-            <br><input class="addProjectInputClass" type="text" th:field="*{waterLaser}" placeholder="Woda-laser">
-            <br>Wysyłka
-            <br><input class="addProjectInputClass" type="text" th:field="*{ship}" placeholder="Wysyłka">
-            <br>Uwagi
-            <br><input class="addProjectInputClass" type="text" th:field="*{comments}" placeholder="Uwagi">
+            <br>Thickness
+            <br><input class="addProjectInputClass" type="text" th:field="*{thickness}" placeholder="Thickness">
+            <br>Quantity
+            <br><input class="addProjectInputClass" type="text" th:field="*{quantity}" placeholder="Quantity">
+            <br>Water/Laser
+            <br><input class="addProjectInputClass" type="text" th:field="*{waterLaser}" placeholder="Water/Laser">
+            <br>Ship
+            <br><input class="addProjectInputClass" type="text" th:field="*{ship}" placeholder="Ship">
+            <br>Comments
+            <br><input class="addProjectInputClass" type="text" th:field="*{comments}" placeholder="Comments">
 
-            <br><button class="saveButtonClass" type="submit">Zapisz projekt</button>
+            <br><button class="saveButtonClass" type="submit">Save project</button>
         </form>
     </div>
 </div>

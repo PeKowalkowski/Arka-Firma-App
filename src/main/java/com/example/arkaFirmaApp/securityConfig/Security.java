@@ -4,6 +4,7 @@ import com.example.arkaFirmaApp.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -26,6 +27,11 @@ public class Security extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/registration**", "/js/**", "/**/*.css", "/img/**").permitAll()
                 .antMatchers("/deleteUser/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.DELETE).hasRole("ADMIN")
+                .antMatchers("/showLogisticanProjectIndex/**").hasAnyRole("ADMIN", "LOGISTICAN")
+                .antMatchers("/showProductionProjectIndex/**").hasAnyRole("ADMIN", "PRODUCTION")
+                .antMatchers("/showSupplierProjectIndex/**").hasAnyRole("ADMIN", "SUPPLIER")
+                .antMatchers("/showTechnologistProjectIndex/**").hasAnyRole("ADMIN", "TECHNOLOGIST")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()

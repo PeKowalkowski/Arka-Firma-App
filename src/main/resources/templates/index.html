@@ -9,22 +9,22 @@
 <div>
     <nav class="navBarClass">
         <form th:action="@{/logout}" method="post">
-            <button class="logoutButtonClass" type="submit" value="Wyloguj się">Wyloguj się</button>
+            <button class="logoutButtonClass" type="submit" value="Wyloguj się">Log out</button>
         </form>
         <div class="helloDivClass" sec:authorize="isAuthenticated()">
-            Witaj <b><span sec:authentication="name">Username</span></b>
+            Hello <b><span sec:authentication="name">Username</span></b>
             &nbsp;
             <span sec:authentication="principal.authorities">Roles</span>
         </div>
         <div class="navBarButtonsClass">
-            <a class="navBarButtonsClass" th:href="@{/showMainProjectIndex}">Projekt </a>
-            <a class="navBarButtonsClass" th:href="@{/showLogisticanProjectIndex}">Logistyk </a>
-            <a class="navBarButtonsClass" th:href="@{/showProductionProjectIndex}">Produkcja </a>
-            <a class="navBarButtonsClass" th:href="@{/showSupplierProjectIndex}">Dostawca </a>
-            <a class="navBarButtonsClass" th:href="@{/showTechnologistProjectIndex}">Technolog</a>
+            <a class="navBarButtonsClass" th:href="@{/showMainProjectIndex}">Project </a>
+            <a class="navBarButtonsClass" th:href="@{/showLogisticanProjectIndex}">Logistican</a>
+            <a class="navBarButtonsClass" th:href="@{/showProductionProjectIndex}">Production</a>
+            <a class="navBarButtonsClass" th:href="@{/showSupplierProjectIndex}">Supplier</a>
+            <a class="navBarButtonsClass" th:href="@{/showTechnologistProjectIndex}">Technologist</a>
         </div>
     </nav>
-    <h1>Lista pracowników</h1>
+    <h1>List of employees</h1>
     <div class="tableDiv">
         <table class="tableClass">
             <thead>
@@ -38,24 +38,24 @@
                 <th class="thClass">
                     <a class="thButtonClass"
                        th:href="@{'/page/' + ${currentPage} + '?sortField=firstname&sortDir=' + ${reverseSortDir}}">
-                        Imię pracownika</a>
+                        First name</a>
                 </th>
                 <th>
                     <a class="thButtonClass"
                        th:href="@{'/page/' + ${currentPage} + '?sortField=lastname&sortDir=' + ${reverseSortDir}}">
-                        Nazwisko pracownika</a>
+                        Last name</a>
                 </th>
                 <th>
                     <a class="thButtonClass"
                        th:href="@{'/page/' + ${currentPage} + '?sortField=login&sortDir=' + ${reverseSortDir}}">
-                        Email</a>
+                        Login</a>
                 </th>
                 <th>
                     <a class="thButtonClass"
                        th:href="@{'/page/' + ${currentPage} + '?sortField=roles&sortDir=' + ${reverseSortDir}}">
-                        Rola</a>
+                        Role</a>
                 </th>
-                <th class="thButtonClass" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">Szczegóły</th>
+                <th class="thButtonClass" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">Details</th>
             </tr>
             </thead>
             <tbody>
@@ -65,9 +65,9 @@
                 <td th:text="${user.firstname}"></td>
                 <td th:text="${user.lastname}"></td>
                 <td th:text="${user.login}"></td>
-                <td th:text="${user.roles}">Rola</td>
+                <td th:text="${user.roles}">Role</td>
                 <td sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
-                    <a class="thButtonClass" th:href="@{/user/{id}(id=${user.id})}">Szczegóły</a>
+                    <a class="thButtonClass" th:href="@{/user/{id}(id=${user.id})}">Details</a>
                 </td>
             </tr>
             </tbody>
@@ -86,16 +86,16 @@
     </div>
 
     <div class="amountPageDivClass">
-        Ilość : [[${totalItems}]]
+        Total : [[${totalItems}]]
     </div>
 
     <div class="nextLastDivClass">
         <a th:if="${currentPage < totalPages}"
-           th:href="@{'/page/' + ${currentPage + 1}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Następna</a>
-        <span th:unless="${currentPage < totalPages}">Następna</span>
+           th:href="@{'/page/' + ${currentPage + 1}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Next</a>
+        <span th:unless="${currentPage < totalPages}">Next</span>
         <a th:if="${currentPage < totalPages}"
-           th:href="@{'/page/' + ${totalPages}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Ostatnia</a>
-        <span th:unless="${currentPage < totalPages}">Ostatnia</span>
+           th:href="@{'/page/' + ${totalPages}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Last</a>
+        <span th:unless="${currentPage < totalPages}">Last</span>
     </div>
 </div>
 </body>

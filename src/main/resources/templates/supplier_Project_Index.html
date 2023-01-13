@@ -10,18 +10,18 @@
 <div>
     <nav class="navBarClass">
         <form th:action="@{/logout}" method="post">
-            <button class="logoutButtonClass" type="submit" value="Wyloguj się">Wyloguj się</button>
+            <button class="logoutButtonClass" type="submit" value="Wyloguj się">Log out</button>
         </form>
         <form>
-            <input type="button" class="backButtonClass" value="Wróć" onclick="history.back()">
+            <input type="button" class="backButtonClass" value="Back" onclick="history.back()">
         </form>
         <div class="navBarButtonsClass">
-            <a class="navBarButtonsClass" th:href="@{/}" type="button"> Tabela Pracowników </a>
-            <a class="navBarButtonsClass" th:href="@{/showNewSupplierProjectForm}"> Dodaj projekt </a>
+            <a class="navBarButtonsClass" th:href="@{/}" type="button"> List of employees </a>
+            <a class="navBarButtonsClass" th:href="@{/showNewSupplierProjectForm}"> Add project </a>
         </div>
     </nav>
 </div>
-<h1>Tabela projektu</h1>
+<h1>Project table</h1>
 <table>
     <thead>
     <tr>
@@ -31,46 +31,46 @@
         </th>
         <th>
             <a th:href="@{'/showSupplierProjectIndex/page/' + ${currentPage} + '?sortField=date&sortDir=' + ${reverseSortDir}}">
-                Data</a>
+                Date</a>
         </th>
         <th>
             <a th:href="@{'/showSupplierProjectIndex/page/' + ${currentPage} + '?sortField=scratchNumber&sortDir=' + ${reverseSortDir}}">
-                Numer rys</a>
+                Scratch number</a>
 
         </th>
         <th>
             <a th:href="@{'/showSupplierProjectIndex/page/' + ${currentPage} + '?sortField=projectName&sortDir=' + ${reverseSortDir}}">
-                Nazwa projektu</a>
+                Project name</a>
         </th>
         <th>
             <a th:href="@{'/showSupplierProjectIndex/page/' + ${currentPage} + '?sortField=principalName&sortDir=' + ${reverseSortDir}}">
-                Zlecający</a>
+                Principal name</a>
         </th>
         <th>
             <a th:href="@{'/showSupplierProjectIndex/page/' + ${currentPage} + '?sortField=material&sortDir=' + ${reverseSortDir}}">
-                Materiał</a>
+                Material</a>
         </th>
         <th>
             <a th:href="@{'/showSupplierProjectIndex/page/' + ${currentPage} + '?sortField=thickness&sortDir=' + ${reverseSortDir}}">
-                Grubość</a>
+                Thickness</a>
         </th>
         <th>
             <a th:href="@{'/showSupplierProjectIndex/page/' + ${currentPage} + '?sortField=quantity&sortDir=' + ${reverseSortDir}}">
-                Liczba sztuk</a>
+                Quantity</a>
         </th>
         <th>
             <a th:href="@{'/showSupplierProjectIndex/page/' + ${currentPage} + '?sortField=waterLaser&sortDir=' + ${reverseSortDir}}">
-                Woda-laser</a>
+                Water/Laser</a>
         </th>
         <th>
             <a th:href="@{'/showSupplierProjectIndex/page/' + ${currentPage} + '?sortField=ship&sortDir=' + ${reverseSortDir}}">
-                Wysyłka/Odbiorca</a>
+                Ship</a>
         </th>
         <th>
             <a th:href="@{'/showSupplierProjectIndex/page/' + ${currentPage} + '?sortField=comments&sortDir=' + ${reverseSortDir}}">
-                Uwagi</a>
+                Comments</a>
         </th>
-        <th>Edytuj/Usuń</th>
+        <th>Edit/Delete</th>
 
     </tr>
     </thead>
@@ -88,8 +88,10 @@
         <td th:text="${supplierProject.ship}"></td>
         <td th:text="${supplierProject.comments}"></td>
         <td>
-            <a th:href="@{/showFormForUpdateSupllierProject/{id}(id=${supplierProject.id})}">Edytuj</a>
-            <a th:href="@{/deleteSupplierProject/{id}(id=${supplierProject.id})}">Usuń</a>
+                <a th:href="@{/showFormForUpdateSupllierProject/{id}(id=${supplierProject.id})}">Edit</a>
+            <td sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
+                <a th:href="@{/deleteSupplierProject/{id}(id=${supplierProject.id})}">Delete</a>
+             </td>
         </td>
 
         </td>
@@ -108,16 +110,16 @@
 </div>
 
 <div class="amountPageDivClass">
-    Ilość : [[${totalItems}]]
+    Total : [[${totalItems}]]
 </div>
 
 <div class="nextLastDivClass">
     <a th:if="${currentPage < totalPages}"
-       th:href="@{'/showSupplierProjectIndex/page/' + ${currentPage + 1}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Następna</a>
-    <span th:unless="${currentPage < totalPages}">Następna</span>
+       th:href="@{'/showSupplierProjectIndex/page/' + ${currentPage + 1}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Next</a>
+    <span th:unless="${currentPage < totalPages}">Next</span>
     <a th:if="${currentPage < totalPages}"
-       th:href="@{'/showSupplierProjectIndex/page/' + ${totalPages}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Ostatnia</a>
-    <span th:unless="${currentPage < totalPages}">Ostatnia</span>
+       th:href="@{'/showSupplierProjectIndex/page/' + ${totalPages}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Last</a>
+    <span th:unless="${currentPage < totalPages}">Last</span>
 </div>
 </div>
 </body>

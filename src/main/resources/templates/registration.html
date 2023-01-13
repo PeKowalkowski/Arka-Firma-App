@@ -13,17 +13,17 @@
     <div>
     <div>
         <div class="addProjectClass">
-            <h1>Rejestracja</h1>
+            <h1>Registration</h1>
             <form th:action="@{/registration}" method="post" th:object="${user}">
                 <div>
-                    <br>Imię
+                    <br>First name
                     <label for="firstname"> </label>
                     <br><input class="addProjectInputClass" id="firstName"th:field="*{firstname}"
                                required autofocus="autofocus" />
                 </div>
 
                 <div>
-                    <br>Nazwisko
+                    <br>Last name
                     <label for="lastname">  </label>
                     <br><input class="addProjectInputClass" id="lastName" th:field="*{lastname}"
                                required autofocus="autofocus" />
@@ -37,17 +37,17 @@
                 </div>
 
                 <div>
-                    <br>Hasło
+                    <br>Password
                     <label for="password">  </label>
                     <br><input class="addProjectInputClass" id="password" type="password"
                                th:field="*{password}" required autofocus="autofocus" />
                 </div>
 
                 <div>
-                    <button class="saveButtonClass" type="submit">Zarejestruj się</button>
+                    <button class="saveButtonClass" type="submit">Register</button>
                 </div>
                 <div>
-                    <span>Masz już konto?<a href="/" th:href="@{/login}">Zaloguj się</a></span>
+                    <span>Do you have an account?<a href="/" th:href="@{/login}">Log in</a></span>
                 </div>
             </form>
         </div>

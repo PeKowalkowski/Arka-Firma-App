@@ -11,49 +11,49 @@
 <div>
     <nav class="navBarClass">
         <form th:action="@{/logout}" method="post">
-            <button class="logoutButtonClass" type="submit" value="Wyloguj się">Wyloguj się</button>
+            <button class="logoutButtonClass" type="submit" value="Wyloguj się">Log out</button>
         </form>
         <form>
-            <input type="button" class="backButtonClass" value="Wróć" onclick="history.back()">
+            <input type="button" class="backButtonClass" value="Back" onclick="history.back()">
         </form>
         <div class="navBarButtonsClass">
-            <a class="navBarButtonsClass" th:href="@{/}" type="button"> Tabela Pracowników </a>
+            <a class="navBarButtonsClass" th:href="@{/}" type="button"> List of employees </a>
         </div>
     </nav>
 </div>
-<h1>Edytuj projekt</h1>
+<h1>Edit project</h1>
 
 <div class="addProjectClass">
 
     <form action="#" th:action="@{/saveProductionProject}" th:object="${production}" method="POST">
         <input type="hidden" th:field="*{id}"/>
-        <br>Data
+        <br>Date
         <br><input class="addProjectInputClass" type="date" th:field="*{date}">
-        <br>Numer Rys
+        <br>Scratch number
         <br><input class="addProjectInputClass" type="text" th:field="*{scratchNumber}">
-        <br>Nazwa Projektu
+        <br>Project name
         <br><input class="addProjectInputClass" type="text" th:field="*{projectName}">
-        <br>Nazwa Wykonawcy
+        <br>Principal name
         <br><input class="addProjectInputClass" type="text" th:field="*{principalName}">
-        <br>Materiał
+        <br>Material
         <br><select class="addProjectInputClass" name="material" th:field="*{material}" >
-        <option value="">Wybierz materiał</option>
-        <option value="Materiał 1">Materiał 1</option>
-        <option value="Materiał 2">Materiał 2</option>
-        <option value="Materiał 3">Materiał 3</option>
-        <option value="Materiał 4">Materiał 4</option>
+        <option value="">Select material</option>
+        <option value="Material 1">Material 1</option>
+        <option value="Material 2">Material 2</option>
+        <option value="Material 3">Material 3</option>
+        <option value="Material 4">Material 4</option>
     </select>
-        <br>Grubość
+        <br>Thickness
         <br><input class="addProjectInputClass" type="text" th:field="*{thickness}">
-        <br>Liczba sztuk
+        <br>Quantity
         <br><input class="addProjectInputClass" type="text" th:field="*{quantity}">
-        <br>Woda/Lase
+        <br>Water/Laser
         <br><input class="addProjectInputClass" type="text" th:field="*{waterLaser}">
-        <br>Wysyłka
+        <br>Ship
         <br><input class="addProjectInputClass" type="text" th:field="*{ship}">
-        <br>Uwagi
+        <br>Comments
         <br><input class="addProjectInputClass" type="text" th:field="*{comments}">
-        <br><button class="saveButtonClass" type="submit"> Edytuj Projekt</button>
+        <br><button class="saveButtonClass" type="submit">Edit project</button>
     </form>
 </div>
 </body>

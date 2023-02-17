@@ -2,7 +2,6 @@ package com.example.arkaFirmaApp.controllers;
 
 import com.example.arkaFirmaApp.entities.User;
 import com.example.arkaFirmaApp.services.UserServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +14,7 @@ import java.util.List;
 @Controller
 public class MainController {
 
-    @Autowired
+
     private UserServiceImpl userServiceImplementation;
 
     public MainController(UserServiceImpl userServiceImplementation) {

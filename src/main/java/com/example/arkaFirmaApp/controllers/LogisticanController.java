@@ -1,9 +1,7 @@
 package com.example.arkaFirmaApp.controllers;
 
 import com.example.arkaFirmaApp.entities.Logistican;
-import com.example.arkaFirmaApp.entities.MainProject;
 import com.example.arkaFirmaApp.services.LogisticanService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;

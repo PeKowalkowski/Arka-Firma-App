@@ -3,8 +3,6 @@ package com.example.arkaFirmaApp.controllers;
 import com.example.arkaFirmaApp.entities.Role;
 import com.example.arkaFirmaApp.entities.User;
 import com.example.arkaFirmaApp.services.AdminService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,9 +16,11 @@ import java.util.List;
 @Controller
 public class AdminController {
 
-    @Autowired
     private AdminService adminService;
 
+    public AdminController(AdminService adminService) {
+        this.adminService = adminService;
+    }
 
     @GetMapping("/showFormForUpdate/{id}")
     public String showFormForUpdate(@PathVariable(value = "id") Long id, Model model){

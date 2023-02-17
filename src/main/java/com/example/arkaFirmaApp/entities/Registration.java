@@ -1,7 +1,5 @@
 package com.example.arkaFirmaApp.entities;
 
-import com.example.arkaFirmaApp.enums.RoleEnum;
-
 import java.util.Collection;
 
 public class Registration {

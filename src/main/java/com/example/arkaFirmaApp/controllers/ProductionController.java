@@ -1,6 +1,5 @@
 package com.example.arkaFirmaApp.controllers;
 
-import com.example.arkaFirmaApp.entities.MainProject;
 import com.example.arkaFirmaApp.entities.Production;
 import com.example.arkaFirmaApp.services.ProductionServiceImpl;
 import org.springframework.data.domain.Page;
